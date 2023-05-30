@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+            </tr>
+        </table>
+    </div>
+
+ <script>
+    let array = []
+    let arrayTitle = []
+    let arrayDesc = []
+    let arrayIng = []
+
+    fetch('https://dummyjson.com/products')
+.then(res => res.json())
+.then(json => {
+    array = json.products.map(function(id){
+        return id.id
+    })
+    arrayTitle = json.products.map(function(title){
+        return title.title
+    })
+
+    arrayDesc = json.products.map(function(desc){
+        return desc.description
+    })
+
+    arrayImg = json.products.map(function(img){
+        return img.thumbnail
+    })
+})
+
+ </script>
+
+
+</body>
+</html>
